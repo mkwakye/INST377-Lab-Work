@@ -1,1 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .header{
+    width: 100%;
+    display: inline-block;
+    background-color: rgba(0,139, 139,0.8);
+    padding: 10px 15px;
+    margin: 0;
+    margin-bottom: 0px;
+  }
 
+  .menu-container {
+    color: #fff;
+    background-color: #5995DA;  /* Blue */
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .menu {
+    border: 1px solid #fff;  /* For debugging */
+    width: 900px;
+  }
+
+  .database {
+      border: 1px solid #fff;
+      display: flex;
+      justify-content: flex-end;
+  }
+
+  .date {
+    justify-content: flex-end;
+}
+
+  .main-page {
+      margin-left: 20px;
+  }
