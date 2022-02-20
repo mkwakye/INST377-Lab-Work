@@ -50,64 +50,112 @@
   }
 
   .main-page {
-      margin-left: 20px;
+    margin-left: 20px;
   }
 
   .demos {
-      margin-left: auto;
+    margin-left: auto;
   }
 
   .date {
-      margin-left: 0px;
+    margin-left: 0px;
   }
 
   .logo {
-      width: 100%;
-      display: flex;
-      padding: 10px 15px;
-      margin: 0 auto;
-      margin-bottom: 0px;
-      height: 300px;
-      justify-content: center;
-      align-items: center;
+    width: 100%;
+    display: flex;
+    padding: 10px 15px;
+    margin: 0 auto;
+    margin-bottom: 0px;
+    height: 300px;
+    justify-content: center;
+    align-items: center;
   }
 
   .project {
-      align-self: flex-end;
-      margin-bottom: 20px;
+    align-self: flex-end;
+    margin-bottom: 20px;
   }
 
   .my-github {
-      align-self: flex-end;
-      margin-bottom: 20px;
+    align-self: flex-end;
+    margin-bottom: 20px;
   }
 
   .photo-grid-container {
-      display: flex;
-      justify-content: center;
+    display: flex;
+    justify-content: center;
   }
 
   .photo-grid {
-      width: 900px;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      flex-direction: row-reverse;
-      align-items: center;
+    width: 900px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    align-items: center;
   }
   
   .first-item {
-      order: 1;
+    order: 1;
   }
   
   .last-item {
-      order: -1;
+    order: -1;
   }
 
   .photo-grid-item {
-      border: 1px solid #fff;
-      width: 300px;
-      height: 300px;
+    border: 1px solid #fff;
+    width: 300px;
+    height: 300px;
+  }
+
+  .carousel {
+    overflow: hidden;
+    max-width: 600px;
+    position: relative;
+  }
+  
+  .carousel .carousel_item,
+  .carousel .carousel_item--hidden {
+    display: none;
+  }
+  
+  .carousel .carousel_item img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+  }
+  
+  .carousel .carousel_item--visible {
+    display: block;
+    animation: fadeVisibility 0.5s;
+  }
+  
+  .carousel .carousel_actions {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .carousel .carousel_actions button {
+    border-radius: 50px;
+    border: 0;
+    font-weight: bold;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .carousel .carousel_actions button#carousel_button--prev {
+    margin-left: 20px;
+  }
+  
+  .carousel .carousel_actions button#carousel_button--next {
+    margin-right: 20px;
   }
 
   .database-container {
