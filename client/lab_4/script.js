@@ -6,13 +6,13 @@ document.
   querySelector('#carousel_button--next')
   .addEventListener("click", function() {
     moveToNextSlide();
-  });
+});
 
 document.
   querySelector('#carousel_button--prev')
   .addEventListener("click", function() {
     moveToPrevSlide();
-  });
+});
 
 function updateSlidePosition() {
   for (let slide of slides) {
