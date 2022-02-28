@@ -37,6 +37,6 @@ html {
 /* Mobile Styles */
 @media only screen and (max-width: 400px) {
   .columns {
-    flex-wrap: wrap-reverse;
+    width: 100%;
   }
 }
