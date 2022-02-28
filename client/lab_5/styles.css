@@ -30,6 +30,10 @@ html {
   margin-top: 25px;
 }
 
+.box size {
+  width: 300px;
+}
+
 
 /** {
   margin: 0;
