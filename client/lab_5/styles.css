@@ -30,8 +30,8 @@ html {
   margin-top: 25px;
 }
 
-.box size {
-  width: 300px;
+.main_form {
+  padding: 5px;
 }
 
 /* Mobile Styles */
