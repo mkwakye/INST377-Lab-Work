@@ -1,5 +1,16 @@
-async function dataHandler(pgArray) {
-  console.table(pgArray);
+async function dataHandler(dataArray) {
+  console.log('fired dataHandler');
+  console.table(dataArray);
+  const range = [...Array(15).keys()];
+  const listItems = range.map((item, index) => {
+    const restNum = getRandomIntInclusive(0, dataArray.length - 1);
+
+    return;
+  })
+
+  range.forEach((item) => {
+    console.log('range item', item);
+  });
 }
 
 async function mainEvent() {
@@ -11,12 +22,12 @@ async function mainEvent() {
   const results = await fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json');
   const arrayFromJson = await results.json();
 
-  if (arrayFromJson.data.length > 0) {
+  if (arrayFromJson.length > 0) {
     form.addEventListener('submit', async (submitEvent) => {
       but.style.display = 'block';
       submitEvent.preventDefault();
       console.log('form submission');
-      dataHandler(arrayFromJson.data);
+      dataHandler(arrayFromJson);
     });
   }
 }
