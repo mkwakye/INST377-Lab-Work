@@ -23,6 +23,15 @@ function restoArrayMake(dataArray) {
 function createHtmlList(collection) {
   console.log('fired HTML creator');
   console.log(collection);
+  const targetList = document.querySelector('.resto-list');
+  targetList.innerHTML = '';
+  collection.forEach((item) => {
+    const {name} = item;
+    const nameDisplay = name.toLowerCase();
+    const injectThisItem = `<li>${nameDisplay}</li>`;
+    // const injectThisItem = `<li>${item.name}</li>`;
+    targetList.innerHTML += injectThisItem;
+  });
 }
 
 async function mainEvent() {
