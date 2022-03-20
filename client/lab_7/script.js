@@ -21,8 +21,8 @@ function restoArrayMake(dataArray) {
 }
 
 function createHtmlList(collection) {
-  console.log('fired HTML creator');
-  console.log(collection);
+  // console.log('fired HTML creator');
+  // console.log(collection);
   const targetList = document.querySelector('.resto-list');
   targetList.innerHTML = '';
   collection.forEach((item) => {
@@ -38,21 +38,38 @@ async function mainEvent() {
   console.log('script loaded');
   const form = document.querySelector('.page_form');
   const but = document.querySelector('.button');
+  const resto = document.querySelector('#resto_name');
+  const category = document.querySelector('#category');
   but.style.display = 'none';
 
   const results = await fetch(
     'https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json'
   );
   const arrayFromJson = await results.json();
-  console.log(arrayFromJson);
+  // console.log(arrayFromJson);
 
-  if (arrayFromJson.length > 0) {
+  if (arrayFromJson.length > 0) { // prevents race condition
     but.style.display = 'block';
+
+    let currentArray = [];
+    resto.addEventListener('input', async (event) => {
+      console.log(event.target.value);
+      // if (currentArray.length < 1) {
+      //   return;
+      // }
+      const selectResto = arrayFromJson.filter((item) => {
+        const lowerName = item.name.toLowerCase();
+        const lowerValue = event.target.value.toLowerCase();
+        return lowerName.includes(lowerValue);
+      });
+      createHtmlList(selectResto);
+    });
+
     form.addEventListener('submit', async (submitEvent) => {
       submitEvent.preventDefault();
-      console.log('form submission');
-      const restoArray = restoArrayMake(arrayFromJson);
-      createHtmlList(restoArray);
+      // console.log('form submission');
+      currentArray = restoArrayMake(arrayFromJson);
+      createHtmlList(currentArray);
     });
   }
 }
