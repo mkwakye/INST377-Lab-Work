@@ -52,7 +52,7 @@ async function mainEvent() {
     but.style.display = 'block';
 
     let currentArray = [];
-    resto.addEventListener('input', async (event) => {
+    resto.addEventListener('input', async (event) => { // for restaurant
       console.log(event.target.value);
       // if (currentArray.length < 1) {
       //   return;
@@ -63,6 +63,16 @@ async function mainEvent() {
         return lowerName.includes(lowerValue);
       });
       createHtmlList(selectResto);
+    });
+
+    category.addEventListener('input', async (event) => { // For category
+      console.log(event.target.value);
+      const selectCat = arrayFromJson.filter((item) => {
+        const lowerCat = item.name.toLowerCase();
+        const lowerCatValue = event.target.value.toLowerCase();
+        return lowerCat.includes(lowerCatValue);
+      });
+      createHtmlList(selectCat);
     });
 
     form.addEventListener('submit', async (submitEvent) => {
