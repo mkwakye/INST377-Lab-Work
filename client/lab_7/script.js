@@ -57,7 +57,8 @@ async function mainEvent() {
       // if (currentArray.length < 1) {
       //   return;
       // }
-      const selectResto = arrayFromJson.filter((item) => {
+      // const selectResto = currentArray.filter((item) => {
+      const selectResto = arrayFromJson.filter((item) => { // filter entire list
         const lowerName = item.name.toLowerCase();
         const lowerValue = event.target.value.toLowerCase();
         return lowerName.includes(lowerValue);
@@ -67,7 +68,8 @@ async function mainEvent() {
 
     category.addEventListener('input', async (event) => { // For category
       console.log(event.target.value);
-      const selectCat = arrayFromJson.filter((item) => {
+      // const selectCat = currentArray.filter((item) => {
+      const selectCat = arrayFromJson.filter((item) => { // filter entire list
         const lowerCat = item.name.toLowerCase();
         const lowerCatValue = event.target.value.toLowerCase();
         return lowerCat.includes(lowerCatValue);
