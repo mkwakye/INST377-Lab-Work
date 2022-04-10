@@ -11,6 +11,8 @@
       ‘Bitsream Vera Sans’, ‘Trebuchet MS’, Verdana, ‘Verdana Ref’, sans-serif;
     background-color: darkred;
   }
+
+  #map { height: 180px; }
   
   html {
     background-color: darkred;
