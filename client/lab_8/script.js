@@ -62,6 +62,18 @@ function getRandomIntInclusive(min, max) {
       L.marker([point[1], point[0]]).addTo(map);
     });
   }
+
+  function refreshList(target, storage) {
+    target.addEventListener('click', async (event) => {
+      event.preventDefault();
+      localStorage.clear()
+      const results = await fetch('/api/foodServicesPG');
+      const arrayFromJson = await results.json();
+      console.log(arrayFromJson);
+      localStorage.setItem(storage, JSON.stringify(arrayFromJson.data));
+      location.reload();
+    });
+  }
   
   async function mainEvent() {
     console.log('script loaded');
@@ -69,21 +81,19 @@ function getRandomIntInclusive(min, max) {
     const but = document.querySelector('.button');
     const resto = document.querySelector('#resto_name');
     const zipcode = document.querySelector('#zipcode');
+    const refresh = document.querySelector('#refresh_list');
 
     const map = initMap('map');
     const retrievalVar = 'restaurants';
     but.style.display = 'none';
-  
-    // const results = await fetch(
-    //   'https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json'
-    // );
 
-    if (!localStorage.getItem(retrievalVar)) {
-      const results = await fetch('/api/foodServicesPG');
-      const arrayFromJson = await results.json();
-      console.log(arrayFromJson);
-      localStorage.setItem(retrievalVar, JSON.stringify(arrayFromJson.data));
-    }
+    // if (!localStorage.getItem(retrievalVar)) {
+    //   const results = await fetch('/api/foodServicesPG');
+    //   const arrayFromJson = await results.json();
+    //   console.log(arrayFromJson);
+    //   localStorage.setItem(retrievalVar, JSON.stringify(arrayFromJson.data));
+    // }
+    refreshList(refresh, retrievalVar);
     
     const storedDataString = localStorage.getItem(retrievalVar);
     const storedDataArray = JSON.parse(storedDataString);

@@ -21,7 +21,7 @@
   /* Page Layout */
   .columns {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: flex-start;
   }
   
   .wrapper {
