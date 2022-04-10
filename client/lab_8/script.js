@@ -56,7 +56,7 @@ function getRandomIntInclusive(min, max) {
       }
     });
 
-    collection.forEach({item} => {
+    collection.forEach((item) => {
       const point = item.geocoded_column_1?.coordinates;
       console.log(item.geocoded_column_1?.coordinates);
       L.marker([point[1], point[0]]).addTo(map);
@@ -71,18 +71,18 @@ function getRandomIntInclusive(min, max) {
     const zipcode = document.querySelector('#zipcode');
 
     const map = initMap('map');
-    const retrievalVar = 'res=taurants';
+    const retrievalVar = 'restaurants';
     but.style.display = 'none';
   
     // const results = await fetch(
     //   'https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json'
     // );
 
-    if (localStorage.getItem(retrievalVar) === undefined) {
+    if (!localStorage.getItem(retrievalVar)) {
       const results = await fetch('/api/foodServicesPG');
       const arrayFromJson = await results.json();
       console.log(arrayFromJson);
-      localStorage.setItem(retrievalVar, JSON.stringify(arrayFromJson));
+      localStorage.setItem(retrievalVar, JSON.stringify(arrayFromJson.data));
     }
     
     const storedDataString = localStorage.getItem(retrievalVar);
@@ -123,6 +123,7 @@ function getRandomIntInclusive(min, max) {
         submitEvent.preventDefault();
         // console.log('form submission');
         currentArray = restoArrayMake(storedDataArray);
+        console.log(currentArray);
         createHtmlList(currentArray);
         // ADD CLEAR MAP MARKERS
         addMapMarkers(map, currentArray);
