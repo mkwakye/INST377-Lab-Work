@@ -41,6 +41,10 @@
       height: fit-content;
   }
 
+  .page_item_wide {
+      width: 640px;
+  }
+
   .form_item {
       display: flex;
       flex-direction: column;
